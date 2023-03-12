@@ -1,7 +1,4 @@
 import { useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
-import { clickCart } from "../../../../../redux/Slices/navbarSlice";
-
 export const UseOutsideClick = (handler) => {
   const ref = useRef();
 

@@ -1,7 +1,6 @@
 import React from "react";
 import "./CartItem.scss";
 import { Link } from "react-router-dom";
-import img from "../../../../../../assets/images/red.jpg";
 
 export default function CartItem({ product }) {
   return (

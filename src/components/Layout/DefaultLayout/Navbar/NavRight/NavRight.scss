@@ -1,0 +1,12 @@
+.nav_right {
+    flex: 2;
+}
+
+.nav_right-menu {
+    display        : flex;
+    justify-content: flex-start;
+
+    li {
+        padding: 10px;
+    }
+}

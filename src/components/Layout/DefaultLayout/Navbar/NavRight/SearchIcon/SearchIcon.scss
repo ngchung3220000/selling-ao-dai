@@ -1,17 +1,3 @@
-.nav_right {
-    flex: 2;
-}
-
-.nav_right-menu {
-    display        : flex;
-    justify-content: flex-start;
-
-    li {
-        padding: 10px;
-    }
-}
-
-
 .icon-search {
     position: relative;
 
@@ -54,35 +40,5 @@
             color           : white;
             padding         : 8px 16px;
         }
-    }
-}
-
-.nav_right-sign {
-    padding-right: 16px;
-    border-right : 1px solid rgb(170, 162, 162);
-}
-
-.cart>ul>li {
-    position        : absolute;
-    font-size       : 11px;
-    border          : 1px solid rgb(170, 162, 162);
-    background-color: #fff;
-    padding         : 4px 2px;
-    margin          : 4px;
-    visibility      : hidden;
-}
-
-.cart:hover.cart>ul>li {
-    visibility      : visible;
-    transition-delay: .5s;
-}
-
-.on-request>a {
-    padding         : 7px 20px;
-    background-color: #D35400;
-    color           : white;
-
-    span {
-        font-size: 13px;
     }
 }

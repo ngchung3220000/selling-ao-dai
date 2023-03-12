@@ -1,21 +1,21 @@
 import "./Login.scss";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { login } from "../../../../../redux/Slices/navbarSlice";
-import { UseOutsideClick } from "../components/useOutsideClick";
+import { toggleLogin } from "../../../../redux/Slices/navbarSlice";
+import { UseOutsideClick } from "../../../.././hooks/useOutsideClick";
 
 export default function Login() {
   const disPatch = useDispatch();
-  const visLogin = useSelector((state) => state.navbar.login);
+  const toggle = useSelector((state) => state.navbar.login);
 
   const handleOutLogin = () => {
-    disPatch(login(false));
+    disPatch(toggleLogin(false));
   };
 
-  const ref = UseOutsideClick(() => disPatch(login(false)));
+  const ref = UseOutsideClick(() => disPatch(toggleLogin(false)));
 
   return (
-    <div className={`login-form ${visLogin ? "visibility" : "hidden"}`}>
+    <div className={`login-form ${toggle ? "visibility" : "hidden"}`}>
       <button className="letter" onClick={handleOutLogin}>
         x
       </button>

@@ -1,9 +1,9 @@
 import React from "react";
-import Navbar from "./Navbar/Navbar";
+import Navbar from "./Navbar/index";
 import Footer from "./Footer/Footer";
-import Login from "./Navbar/Login/login";
-import CartIcon from "./Navbar/CartICon/cartIcon";
-import SewingSet from "./Navbar/SewingSet/sewingSet";
+import Login from "./Login/login";
+import CartList from "./CartList/cartList";
+import SewingSet from "./SewingSet/sewingSet";
 
 export default function DefaultLayout({ children }) {
   return (
@@ -11,7 +11,7 @@ export default function DefaultLayout({ children }) {
       <Navbar />
       <div>{children}</div>
       <Login />
-      <CartIcon />
+      <CartList />
       <SewingSet />
       <Footer />
     </div>

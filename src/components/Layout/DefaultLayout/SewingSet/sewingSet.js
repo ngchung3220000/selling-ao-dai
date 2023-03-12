@@ -1,18 +1,18 @@
 import "./SewingSet.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { openOrder } from "../../../../../redux/Slices/navbarSlice";
-import { UseOutsideClick } from "../components/useOutsideClick";
+import { toggleRequest } from "../../../../redux/Slices/navbarSlice";
+import { UseOutsideClick } from "../../../../hooks/useOutsideClick";
 
 export default function SewingSet() {
   const disPatch = useDispatch();
   const visSewing = useSelector((state) => state.navbar.order);
 
-  const ref = UseOutsideClick(() => disPatch(openOrder(false)));
+  const ref = UseOutsideClick(() => disPatch(toggleRequest(false)));
   return (
     <div className={`sewing-container ${visSewing ? "open" : "close"}`}>
       <button
         className="close-sewing"
-        onClick={() => disPatch(openOrder(false))}
+        onClick={() => disPatch(toggleRequest(false))}
       >
         x
       </button>

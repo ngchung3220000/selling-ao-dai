@@ -6,27 +6,27 @@ export const navbarSlice = createSlice({
     search: "",
     login: false,
     cart: false,
-    order: false,
-    sortBy: "",
+    request: false,
   },
   reducers: {
     searchText: (state, action) => {
       state.search = action.payload;
     },
 
-    login: (state, action) => {
+    toggleLogin: (state, action) => {
       state.login = action.payload;
     },
 
-    clickCart: (state, action) => {
+    toggleCartIcon: (state, action) => {
       state.cart = action.payload;
     },
 
-    openOrder: (state, action) => {
+    toggleRequest: (state, action) => {
       state.order = action.payload;
     },
   },
 });
 
-export const { searchText, login, clickCart, openOrder } = navbarSlice.actions;
+export const { searchText, toggleLogin, toggleCartIcon, toggleRequest } =
+  navbarSlice.actions;
 export default navbarSlice.reducer;
