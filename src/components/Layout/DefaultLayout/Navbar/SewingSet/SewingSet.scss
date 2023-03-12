@@ -1,0 +1,131 @@
+@mixin inputStyle {
+    display   : block;
+    width     : 100%;
+    height    : 40px;
+    margin    : 0px 0px 20px;
+    border    : 1px solid #ddd;
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
+    outline   : none;
+    padding   : 10px;
+    font-size : 16px;
+}
+
+@mixin labelStyle {
+    display: block;
+    width  : 100%;
+    height : 25px;
+}
+
+.open {
+    display: block;
+}
+
+.close {
+    display: none;
+}
+
+
+.sewing-container {
+    position        : fixed;
+    width           : 100%;
+    height          : 100%;
+    top             : 0px;
+    left            : 0px;
+    background-color: rgba(255, 255, 255, .8);
+    z-index         : 1;
+}
+
+.close-sewing {
+    position        : fixed;
+    top             : 5px;
+    right           : 5px;
+    padding         : 16px;
+    cursor          : pointer;
+    border          : none;
+    color           : #ccc;
+    font-size       : 30px;
+    background-color: transparent;
+
+    &:hover {
+        color: rgb(148, 144, 144);
+    }
+}
+
+.sewing-wrap {
+    position        : absolute;
+    top             : 50%;
+    left            : 50%;
+    width           : 600px;
+    height          : auto;
+    padding         : 20px;
+    transform       : translate(-50%, -50%) !important;
+    background-color: white;
+
+    h3 {
+        text-align : center;
+        font-weight: 100;
+    }
+}
+
+.sewing-form {
+    position: relative;
+    width   : 100%;
+    height  : auto;
+}
+
+
+
+.form-item {
+    display: block;
+    margin : 0px 0px 10px;
+
+    label {
+        @include labelStyle();
+    }
+
+    input {
+        @include inputStyle();
+    }
+}
+
+.form-sample {
+    display: block;
+    margin : 0px 0px 10px;
+
+    label {
+        @include labelStyle();
+    }
+}
+
+.form-message {
+    display: block;
+    margin : 0px 0px 10px;
+
+    label {
+        @include labelStyle();
+    }
+
+    textarea {
+        width     : 100%;
+        height    : 120px;
+        padding   : 10px;
+        border    : 1px solid #ddd;
+        box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
+        outline   : none;
+        padding   : 10px;
+        font-size : 16px;
+    }
+}
+
+.form-submit {
+
+    button {
+        background-color: #d35400;
+        border          : none;
+        padding         : 12px 24px;
+        font-size       : 16px;
+        color           : white;
+        margin          : 0px 0px 10px;
+        cursor          : pointer;
+    }
+}

@@ -1,0 +1,76 @@
+.navbar {
+    display         : flex;
+    justify-content : center;
+    padding         : 0px 65px;
+    border-bottom   : 1px solid rgb(176, 166, 166, .5);
+    position        : relative;
+    align-items     : center;
+    width           : 100%;
+    height          : auto;
+    position        : sticky;
+    top             : 0px;
+    z-index         : 1;
+    background-color: #f6f6f6d8;
+
+    .logo {
+        flex   : 1;
+        padding: 8px 0px;
+
+        img {
+            padding  : 0px 15px;
+            max-width: 100%;
+            height   : auto;
+        }
+    }
+
+    .nav_main {
+        flex: 2;
+    }
+
+
+}
+
+
+
+.nav_main-menu {
+    display        : flex;
+    justify-content: flex-start;
+
+    li a {
+        padding : 12px;
+        position: relative;
+        display : block;
+    }
+}
+
+.shop-list {
+    position        : absolute;
+    background-color: #fff;
+    border          : 1px solid rgb(244, 243, 243);
+    visibility      : hidden;
+    padding         : 20px;
+    width           : 250px;
+    box-shadow      : 1px 1px 15px rgb(0 0 0 / 15%);
+    z-index         : 1;
+    top             : 75px;
+    transition      : .3s;
+
+    li a {
+        border-bottom: 1px solid rgb(235, 232, 232);
+        line-height  : 90%;
+        font-size    : 95%;
+        color        : rgb(173, 175, 175);
+
+        &:hover {
+            color           : #252525;
+            transition-delay: .1s;
+        }
+    }
+}
+
+
+.shop-hover:hover .shop-list {
+    visibility      : visible;
+    transition-delay: .3s;
+    top             : 55px;
+}

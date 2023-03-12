@@ -1,0 +1,45 @@
+.cart-item {
+    position  : relative;
+    padding   : 10px 0 20px 75px;
+    margin    : 10px 0px 30px;
+    text-align: left;
+
+    .remove-item {
+        position     : absolute;
+        right        : 0px;
+        border       : 2px solid #ccc;
+        width        : 26px;
+        height       : 26px;
+        border-radius: 50%;
+        color        : #ccc;
+        font-size    : 13px;
+        font-weight  : 600;
+        padding-top  : 3px;
+        text-align   : center;
+
+        &:hover {
+            border-color: #000;
+            color       : #000;
+        }
+
+    }
+
+    .img-item {
+
+        img {
+            position: absolute;
+            left    : 0px;
+            width   : 70px;
+            height  : 80px;
+        }
+
+        span {
+            display      : block;
+            margin-bottom: 10px;
+        }
+    }
+
+    .price-item {
+        opacity: .6;
+    }
+}

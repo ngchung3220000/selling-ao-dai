@@ -1,0 +1,54 @@
+.footer {
+    width           : 100%;
+    padding         : 15px;
+    background-color: #222222;
+    color           : #f1f1f1;
+    display         : flex;
+    justify-content : space-between;
+}
+
+.footer li {
+    list-style: disc;
+    margin    : 0px 0px 10px 20px;
+}
+
+.footer a {
+    color: #f1f1f1;
+}
+
+.item-padding {
+    padding: 0px 15px 30px;
+    width  : 100%;
+    height : auto;
+}
+
+.footer h3 {
+    margin: 0px 0px 20px 5px;
+}
+
+.footer-right-icon a {
+    margin: 0px 8px;
+}
+
+.footer-right p {
+    padding: 15px 0px;
+}
+
+.footer-right-email>input {
+    width : 70%;
+    height: 45px;
+}
+
+.footer-right-email>input::placeholder {
+    font-size: 16px;
+    padding  : 0px 0px 0px 10px;
+}
+
+.btn-submit {
+    background-color: #D35400;
+    padding         : 12px 16px;
+    border          : none;
+    font-size       : 16px;
+    color           : white;
+    cursor          : pointer;
+}
