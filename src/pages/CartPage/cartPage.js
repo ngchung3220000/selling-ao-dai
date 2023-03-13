@@ -1,6 +1,10 @@
 import "./CartPage.scss";
+import { useSelector } from "react-redux";
+import CartPageItem from "./cartPageItem";
+import _ from "lodash";
 
 export default function CartPage() {
+  const cartList = useSelector((state) => state.cart);
   return (
     <div className="cartpage-container">
       <div className="cartpage-wrap">
@@ -16,28 +20,10 @@ export default function CartPage() {
             </thead>
 
             <tbody>
-              <tr className="table-item">
-                <td className="remove-product">
-                  <a>x</a>
-                </td>
-                <td className="product-thumbnail">
-                  <a>image</a>
-                </td>
-                <td className="product-name">
-                  <a>name</a>
-                </td>
-                <td className="product-price">
-                  <span>380.000 ₫</span>
-                </td>
-                <td className="product-quantity">
-                  <button>-</button>
-                  <input defaultValue={1} />
-                  <button>+</button>
-                </td>
-                <td className="product-subtotal">
-                  <span>380.000 ₫</span>
-                </td>
-              </tr>
+              {_.map(cartList, (product, index) => {
+                return <CartPageItem key={index} product={product} />;
+              })}
+
               <tr className="actions">
                 <td colSpan={6}>
                   <a className="continue-shopping">TIẾP TỤC XEM SẢN PHẨM</a>

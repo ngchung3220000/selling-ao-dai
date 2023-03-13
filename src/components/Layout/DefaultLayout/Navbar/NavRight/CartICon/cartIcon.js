@@ -1,28 +1,29 @@
 import "./CartIcon.scss";
-import { handleTotalPrice } from "../../../../../../helper";
-import { toggleCartIcon } from "../../../../../../redux/Slices/navbarSlice";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { handleTotalPrice } from "../../../../../../helper";
+import {
+  toggleCartIcon,
+  priceCartIcon,
+} from "../../../../../../redux/Slices/navbarSlice";
 
 export default function CartIcon() {
   const disPatch = useDispatch();
   const toggle = useSelector((state) => state.navbar.cart);
   const cartList = useSelector((state) => state.cart);
+  const totalPriceCart = useSelector((state) => state.navbar.price);
+
+  useEffect(() => {
+    if (cartList.length > 0) {
+      disPatch(priceCartIcon(handleTotalPrice(cartList, "price")));
+    }
+  }, [cartList]);
 
   return (
     <li className="cart">
       <a href="#" onClick={() => disPatch(toggleCartIcon(!toggle))}>
         {cartList.length > 0 ? (
-          <>
-            {/* {_.reduce(
-                  cartList,
-                  (total, product) => {
-                    return total + product.price;
-                  },
-                  0
-                )} */}
-            {handleTotalPrice(cartList, "price")}
-            <span>.000 ₫ </span>
-          </>
+          <span>{totalPriceCart}.000 ₫ </span>
         ) : (
           <span>0 ₫ </span>
         )}

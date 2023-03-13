@@ -1,23 +1,23 @@
 import "./CartList.scss";
 import _ from "lodash";
-import { useDispatch, useSelector } from "react-redux";
 import CartItem from "./CartItem/cartItem";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { toggleCartIcon } from "../../../../redux/Slices/navbarSlice";
 import { UseOutsideClick } from "../../../.././hooks/useOutsideClick";
 import { handleTotalPrice } from "../../../../helper";
 
 export default function CartList() {
   const disPatch = useDispatch();
-  const visCart = useSelector((state) => state.navbar.cart);
-
+  const toggle = useSelector((state) => state.navbar.cart);
   const cartList = useSelector((state) => state.cart);
 
-  console.log(cartList);
+  console.log("cart", cartList, toggle);
 
   const ref = UseOutsideClick(() => disPatch(toggleCartIcon(false)));
 
   return (
-    <div className={`cart-container ${visCart ? "visible" : "hidden"}`}>
+    <div className={`cart-container ${toggle ? "visible" : "hidden"}`}>
       <div ref={ref} className={`cart-wrap `}>
         <h3>GIỎ HÀNG</h3>
         <div className="divider"></div>
@@ -36,12 +36,12 @@ export default function CartList() {
               <span>.000 ₫</span>
             </p>
             <p className="buttons">
-              <a href="/gio-hang" className="button">
+              <Link to="/gio-hang" className="button">
                 XEM GIỎ HÀNG
-              </a>
-              <a href="/thanh-toan" className="button">
+              </Link>
+              <Link to="/thanh-toan" className="button">
                 THANH TOÁN
-              </a>
+              </Link>
             </p>
           </div>
         )}

@@ -49,73 +49,7 @@
 
 }
 
-.table-item {
-    border-bottom: 1px solid #ccc;
 
-    td {
-        @include textRight();
-    }
-}
-
-.remove-product {
-    width : 24px;
-    height: auto;
-
-    a {
-        display      : block;
-        width        : 24px;
-        height       : 24px;
-        border-radius: 50%;
-        font-size    : 12px;
-        border       : 2px solid #ccc;
-        color        : #ccc;
-        text-align   : center;
-        padding-top  : 3px;
-    }
-}
-
-.product-thumbnail {
-    width  : 90px;
-    height : 140px;
-    padding: 15px 7px;
-}
-
-.product-name {
-    width : 250px;
-    height: 140px;
-}
-
-
-.product-quantity {
-
-    input,
-    button {
-        height          : 36px;
-        border          : 1px solid #ccc;
-        background-color: white;
-    }
-
-    input {
-        width       : 36px;
-        text-align  : center;
-        border-left : none;
-        border-right: none;
-        box-shadow  : inset 0 1px 2px rgb(0 0 0 / 10%);
-        outline     : none;
-    }
-
-    button {
-        width           : 25px;
-        background-color: rgb(249, 249, 249);
-        cursor          : pointer;
-        transition      : .5s;
-
-        &:hover {
-            background-color: #C1C1C1;
-        }
-    }
-
-}
 
 
 .actions {

@@ -1,42 +1,43 @@
+import { Link } from "react-router-dom";
 import "./NavMain.scss";
 export default function NavMain() {
   return (
     <div className="nav_main">
       <ul className="nav_main-menu">
         <li>
-          <a href="/">GIỚI THIỆU</a>
+          <Link to="/">GIỚI THIỆU</Link>
         </li>
         <li className="shop-hover">
-          <a href="/product">
+          <Link to="/product">
             SHOP ONLINE
             <i className="fa-solid fa-angle-down"></i>
-          </a>
+          </Link>
           <ul className="shop-list">
             <li>
-              <a href="#">Đầm ngủ</a>
+              <Link to="#">Đầm ngủ</Link>
             </li>
             <li>
-              <a href="#">Áo linen</a>
+              <Link to="#">Áo linen</Link>
             </li>
             <li>
-              <a href="#">Túi xách</a>
+              <Link to="#">Túi xách</Link>
             </li>
             <li>
-              <a href="#">Áo phong cách</a>
+              <Link to="#">Áo phong cách</Link>
             </li>
             <li>
-              <a href="#">Váy ngắn</a>
+              <Link to="#">Váy ngắn</Link>
             </li>
             <li>
-              <a href="#">Sơ mi linen</a>
+              <Link to="#">Sơ mi linen</Link>
             </li>
           </ul>
         </li>
         <li>
-          <a href="/blog">BLOG</a>
+          <Link to="/blog">BLOG</Link>
         </li>
         <li>
-          <a href="#">LIÊN HỆ</a>
+          <Link to="#">LIÊN HỆ</Link>
         </li>
       </ul>
     </div>
