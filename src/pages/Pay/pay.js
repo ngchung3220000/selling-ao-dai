@@ -1,6 +1,11 @@
+import _ from "lodash";
+import { useSelector } from "react-redux";
 import "./Pay.scss";
 
 export default function Pay() {
+  const cartList = useSelector((state) => state.cart);
+  const totalPriceCart = useSelector((state) => state.navbar.price);
+  console.log(cartList);
   return (
     <div className="pay-container">
       <div className="pay-wrap">
@@ -71,21 +76,26 @@ export default function Pay() {
                   </tr>
                 </thead>
 
-                <tbody>
-                  <tr className="order-product">
-                    <td>Tên sản phẩm</td>
-                    <td className="text-right">380000</td>
-                  </tr>
-                </tbody>
+                {cartList.length > 0 &&
+                  _.map(cartList, (product, index) => {
+                    return (
+                      <tbody key={index}>
+                        <tr className="order-product">
+                          <td>{product.name} x 1</td>
+                          <td className="text-right">{product.price}.000 ₫</td>
+                        </tr>
+                      </tbody>
+                    );
+                  })}
 
                 <tfoot>
                   <tr className="order-subtotal">
                     <th>Tạm tính</th>
-                    <td className="text-right">380000</td>
+                    <td className="text-right">{totalPriceCart}.000 ₫</td>
                   </tr>
                   <tr className="order-total">
                     <th>Tổng</th>
-                    <td className="text-right">380000</td>
+                    <td className="text-right">{totalPriceCart}.000 ₫</td>
                   </tr>
                 </tfoot>
               </table>

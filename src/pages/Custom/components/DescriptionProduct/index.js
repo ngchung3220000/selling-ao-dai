@@ -1,23 +1,28 @@
-import React from "react";
 import "./Description.scss";
-import img from "../../../../assets/images/red.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../../../redux/Slices/cartSlice";
 
 export default function DescriptionProduct() {
+  const disPatch = useDispatch();
+  const info = useSelector((state) => state.main);
+  const handleAddToCart = () => {
+    disPatch(addToCart(info));
+  };
   return (
     <div className="description-product">
       <div className="product-thumnail">
         <a>
-          <img src={img} />
+          <img src={info.img} />
         </a>
       </div>
 
       <div className="product-info">
         <section className="info-name">
-          <h2>Lụa in 3D </h2>
+          <h2>{info.name} </h2>
         </section>
 
         <section className="info-price">
-          <span>380</span>
+          <span>{info.price}.000 ₫</span>
         </section>
 
         <section className="size">
@@ -27,10 +32,12 @@ export default function DescriptionProduct() {
         <section className="info-quantity">
           <div className="quantity">
             <button>-</button>
-            <input value={1} />
+            <input defaultValue={1} />
             <button>+</button>
           </div>
-          <button className="add-to-cart">THÊM VÀO GIỎ HÀNG</button>
+          <button className="add-to-cart" onClick={handleAddToCart}>
+            THÊM VÀO GIỎ HÀNG
+          </button>
         </section>
 
         <section className="accordion">

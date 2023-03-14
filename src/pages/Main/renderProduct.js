@@ -1,16 +1,22 @@
-import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { infoProduct } from "../../redux/Slices/mainSlice";
 
 export default function Product({ product }) {
+  const disPatch = useDispatch();
+  const info = useSelector((state) => state.main);
   return (
     <div key={product.id} className="product-item">
       <div className="product-img">
-        <a href="/custom">
+        <Link to="/custom" onClick={() => disPatch(infoProduct(product))}>
           <img src={product.img} />
-        </a>
+        </Link>
       </div>
       <div className="product-text">
-        <a href="/custom">{product.name}</a>
-        <p>{product.price} ₫</p>
+        <Link to="/custom" onClick={() => disPatch(infoProduct(product))}>
+          {product.name}
+        </Link>
+        <p>{product.price}.000 ₫</p>
       </div>
     </div>
   );

@@ -10,22 +10,25 @@ import ProductRender from "./ProductRender";
 export default function Product() {
   const disPatch = useDispatch();
   const searchItems = useSelector((state) => state.navbar.search);
+  console.log(searchItems);
 
   const [sortBy, setSortBy] = useState("date");
   const [currentPage, setCurrentPage] = useState(1);
   const [newPerPage, setNewPerPage] = useState(12);
 
-  const indexOfLast = currentPage * newPerPage;
-  const indexOfFirst = indexOfLast - newPerPage;
-
-  const pageNumbers = [];
-  for (let i = 1; i <= _.ceil(dataShopOnline.length / newPerPage); i++) {
-    pageNumbers.push(i);
-  }
-
   const products = _.filter(dataShopOnline, (data) => {
     return _.includes(_.lowerCase(data.name), _.trim(searchItems));
   });
+
+  const indexOfLast = currentPage * newPerPage;
+  const indexOfFirst = indexOfLast - newPerPage;
+  const dataSlice = _.slice(products, indexOfFirst, indexOfLast);
+  console.log(products.length);
+
+  const pageNumbers = [];
+  for (let i = 1; i <= _.ceil(products.length / newPerPage); i++) {
+    pageNumbers.push(i);
+  }
 
   const handleOnChangeSelect = (e) => {
     setSortBy(e.target.value);
@@ -86,7 +89,11 @@ export default function Product() {
         </div>
 
         <div className="nav-shop-right">
-          <p>Hiển thị 1-12 của 24 kết quả</p>
+          <p>
+            Hiển thị {indexOfFirst + 1} -{" "}
+            {dataSlice.length === newPerPage ? indexOfLast : products.length}{" "}
+            của {products.length} kết quả
+          </p>
           <select
             value={sortBy}
             className="sort-by"

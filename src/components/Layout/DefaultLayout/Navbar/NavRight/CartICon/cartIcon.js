@@ -1,5 +1,5 @@
 import "./CartIcon.scss";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { handleTotalPrice } from "../../../../../../helper";
 import {
@@ -20,7 +20,7 @@ export default function CartIcon() {
   }, [cartList]);
 
   return (
-    <li className="cart">
+    <li className={`cart`}>
       <a href="#" onClick={() => disPatch(toggleCartIcon(!toggle))}>
         {cartList.length > 0 ? (
           <span>{totalPriceCart}.000 ₫ </span>

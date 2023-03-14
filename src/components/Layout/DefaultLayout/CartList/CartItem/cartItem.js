@@ -1,12 +1,18 @@
 import React from "react";
 import "./CartItem.scss";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { delItem } from "../../../../../redux/Slices/cartSlice";
 
 export default function CartItem({ product }) {
+  const disPatch = useDispatch();
+  const handleDelItem = () => {
+    disPatch(delItem(product.id));
+  };
   return (
     <div>
       <li className="cart-item">
-        <a href="#" className="remove-item">
+        <a href="#" className="remove-item" onClick={handleDelItem}>
           <span>x</span>
         </a>
         <Link className="img-item">

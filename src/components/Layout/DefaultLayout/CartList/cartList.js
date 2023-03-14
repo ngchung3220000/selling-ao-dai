@@ -12,8 +12,6 @@ export default function CartList() {
   const toggle = useSelector((state) => state.navbar.cart);
   const cartList = useSelector((state) => state.cart);
 
-  console.log("cart", cartList, toggle);
-
   const ref = UseOutsideClick(() => disPatch(toggleCartIcon(false)));
 
   return (
@@ -36,10 +34,18 @@ export default function CartList() {
               <span>.000 ₫</span>
             </p>
             <p className="buttons">
-              <Link to="/gio-hang" className="button">
+              <Link
+                to="/gio-hang"
+                className="button"
+                onClick={() => disPatch(toggleCartIcon(false))}
+              >
                 XEM GIỎ HÀNG
               </Link>
-              <Link to="/thanh-toan" className="button">
+              <Link
+                to="/thanh-toan"
+                className="button"
+                onClick={() => disPatch(toggleCartIcon(false))}
+              >
                 THANH TOÁN
               </Link>
             </p>
