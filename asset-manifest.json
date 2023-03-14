@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/website-ban-ao-dai/static/css/main.c52f5ce6.css",
+    "main.js": "/website-ban-ao-dai/static/js/main.aab2ed4b.js",
+    "static/js/787.c1112931.chunk.js": "/website-ban-ao-dai/static/js/787.c1112931.chunk.js",
+    "static/media/babnner.jpg": "/website-ban-ao-dai/static/media/babnner.dd8111dadde7f489be0a.jpg",
+    "static/media/news.jpg": "/website-ban-ao-dai/static/media/news.c8589f2178f2740ab9d7.jpg",
+    "static/media/green.jpg": "/website-ban-ao-dai/static/media/green.2e55c6a301c1ddd3f2b7.jpg",
+    "static/media/red.jpg": "/website-ban-ao-dai/static/media/red.38d57de77a0bb2dd00a3.jpg",
+    "index.html": "/website-ban-ao-dai/index.html",
+    "main.c52f5ce6.css.map": "/website-ban-ao-dai/static/css/main.c52f5ce6.css.map",
+    "main.aab2ed4b.js.map": "/website-ban-ao-dai/static/js/main.aab2ed4b.js.map",
+    "787.c1112931.chunk.js.map": "/website-ban-ao-dai/static/js/787.c1112931.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c52f5ce6.css",
+    "static/js/main.aab2ed4b.js"
+  ]
+}
