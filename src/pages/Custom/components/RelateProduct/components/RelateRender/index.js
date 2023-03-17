@@ -1,5 +1,4 @@
-import React from "react";
-
+import "./RelateRender.scss";
 export default function RelateRender({ data }) {
   return (
     <div className="relate-item">
@@ -20,7 +19,7 @@ export default function RelateRender({ data }) {
           <span>IN 3D</span>
         </p>
         <a>{data.name}</a>
-        <p>{data.price} ₫</p>
+        <p>{data.price}.000 ₫</p>
       </div>
     </div>
   );
