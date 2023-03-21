@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { addToCart } from "../../redux/Slices/cartSlice";
+import { infoProduct } from "../../redux/Slices/mainSlice";
 export default function ProductRender({ product }) {
   const disPatch = useDispatch();
 
@@ -10,9 +12,9 @@ export default function ProductRender({ product }) {
   return (
     <div className="shop-item">
       <div className="shop-img">
-        <a href="/custom">
+        <Link to="/custom" onClick={() => disPatch(infoProduct(product))}>
           <img src={product.img} />
-        </a>
+        </Link>
 
         <div className="add-cart">
           <a onClick={handleAddToCart} className="add-cart-icon">
@@ -25,7 +27,9 @@ export default function ProductRender({ product }) {
         <p>
           <span>IN 3D</span>
         </p>
-        <a>{product.name}</a>
+        <Link to="/custom" onClick={() => disPatch(infoProduct(product))}>
+          {product.name}
+        </Link>
         <p>{product.price}.000 ₫</p>
       </div>
     </div>

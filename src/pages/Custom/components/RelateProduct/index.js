@@ -8,7 +8,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export default function RelateProduct() {
- 
   return (
     <div className="relate-container">
       <div className="relate-wrap">
@@ -17,15 +16,15 @@ export default function RelateProduct() {
           <img src={iconHead} />
         </div>
 
-    
         <div className="relate-product">
-         {/* {SlickSlider(data.map((data, index) => {
+          {/* {SlickSlider(data.map((data, index) => {
               return <RelateRender key={index} data={data} />;
             }))} */}
-            <SlickSlider data={data.map((data, index) => {
-              return <RelateRender key={index} data={data} />;
-            })}/>
-         
+          <SlickSlider
+            data={data.map((data, index) => {
+              return <RelateRender key={index} product={data} />;
+            })}
+          />
         </div>
       </div>
     </div>

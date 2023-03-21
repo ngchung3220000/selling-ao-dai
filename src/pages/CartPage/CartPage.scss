@@ -73,20 +73,7 @@
             }
         }
 
-        .submit {
-            padding         : 10px 16px;
-            background-color: #d26e4b;
-            color           : white;
-            border          : none;
-            font-size       : 16px;
-            cursor          : pointer;
-            opacity         : .8;
-            transition      : .3s;
 
-            &:hover {
-                opacity: 1;
-            }
-        }
     }
 }
 

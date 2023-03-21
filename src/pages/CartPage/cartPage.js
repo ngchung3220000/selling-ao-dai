@@ -1,23 +1,13 @@
 import "./CartPage.scss";
-import { useDispatch, useSelector } from "react-redux";
-import CartPageItem from "./cartPageItem";
 import _ from "lodash";
 import { Link } from "react-router-dom";
-import { handleTotalPrice } from "../../helper/index";
-import { priceCartIcon } from "../../redux/Slices/navbarSlice";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import CartPageItem from "./cartPageItem";
 
 export default function CartPage() {
   const disPatch = useDispatch();
-  const cartList = useSelector((state) => state.cart);
-  const totalPriceCart = useSelector((state) => state.navbar.price);
-
-  const [totalPrice, setTotalPrice] = useState(totalPriceCart);
-
-  const handleUpdateCart = () => {
-    setTotalPrice(handleTotalPrice(cartList, "quantity"));
-    disPatch(priceCartIcon(handleTotalPrice(cartList, "quantity")));
-  };
+  const cartList = useSelector((state) => state.cart.cartList);
+  const totalPriceCart = useSelector((state) => state.cart.totalAmount);
 
   return (
     <div className="cartpage-container">
@@ -44,9 +34,6 @@ export default function CartPage() {
                     <Link to="/product" className="continue-shopping">
                       TIẾP TỤC XEM SẢN PHẨM
                     </Link>
-                    <button className="submit" onClick={handleUpdateCart}>
-                      CẬP NHẬT GIỎ HÀNG
-                    </button>
                   </td>
                 </tr>
               </tbody>
@@ -67,12 +54,12 @@ export default function CartPage() {
                 <tr className="subtotal">
                   <th>Tạm tính</th>
                   <td>
-                    <span>{totalPrice}.000 ₫</span>
+                    <span>{totalPriceCart}.000 ₫</span>
                   </td>
                 </tr>
                 <tr className="order-total">
                   <th>Tổng</th>
-                  <td>{totalPrice}.000 ₫</td>
+                  <td>{totalPriceCart}.000 ₫</td>
                 </tr>
               </tbody>
             </table>

@@ -1,54 +1,63 @@
 import "./Description.scss";
 import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { addToCart } from "../../../../redux/Slices/cartSlice";
 
 export default function DescriptionProduct() {
   const disPatch = useDispatch();
-  const info = useSelector((state) => state.main);
+  const product = useSelector((state) => state.main);
+
+  const [quantity, setQuantity] = useState(product.quantity);
   const handleAddToCart = () => {
-    disPatch(addToCart(info));
+    disPatch(addToCart({ ...product, quantity: quantity }));
   };
+
   return (
     <div className="description-product">
       <div className="product-thumnail">
-        <a>
-          <img src={info.img} />
+        <a href="#">
+          <img src={product.img} />
         </a>
       </div>
 
       <div className="product-info">
         <section className="info-name">
-          <h2>{info.name} </h2>
+          <h2>{product.name} </h2>
         </section>
 
         <section className="info-price">
-          <span>{info.price}.000 ₫</span>
+          <span>{product.price}.000 ₫</span>
         </section>
 
         <section className="size">
-          <a>Bảng size</a>
+          <a href="#">Bảng size</a>
         </section>
 
         <section className="info-quantity">
           <div className="quantity">
-            <button>-</button>
-            <input defaultValue={1} />
-            <button>+</button>
+            <button onClick={() => setQuantity(quantity - 1)}>-</button>
+            <input value={quantity} readOnly />
+            <button onClick={() => setQuantity(quantity + 1)}>+</button>
           </div>
-          <button className="add-to-cart" onClick={handleAddToCart}>
+          <Link
+            to="/gio-hang"
+            className="add-to-cart"
+            onClick={handleAddToCart}
+          >
             THÊM VÀO GIỎ HÀNG
-          </button>
+          </Link>
         </section>
 
         <section className="accordion">
           <div className="accordion-item">
-            <a>MÔ TẢ SẢN PHẨM</a>
+            <a href="#">MÔ TẢ SẢN PHẨM</a>
           </div>
           <div className="accordion-item">
-            <a>QUY ĐỊNH ĐỔI HÀNG</a>
+            <a href="#">QUY ĐỊNH ĐỔI HÀNG</a>
           </div>
           <div className="accordion-item">
-            <a>PHÍ VẪN CHUYỂN</a>
+            <a href="#">PHÍ VẪN CHUYỂN</a>
           </div>
         </section>
 
@@ -59,13 +68,13 @@ export default function DescriptionProduct() {
 
           <div className="poster-in">
             <span>Danh mục: </span>
-            <a>In 3D</a>
-            <a>In 3D</a>
-            <a>In 3D</a>
+            <a href="#">In 3D</a>
+            <a href="#">In 3D</a>
+            <a href="#">In 3D</a>
           </div>
         </section>
 
-        <a className="order-request">
+        <a href="#" className="order-request">
           <button>ĐẶT MAY THEO YÊU CẦU</button>
         </a>
       </div>

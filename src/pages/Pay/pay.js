@@ -3,9 +3,10 @@ import { useSelector } from "react-redux";
 import "./Pay.scss";
 
 export default function Pay() {
-  const cartList = useSelector((state) => state.cart);
-  const totalPriceCart = useSelector((state) => state.navbar.price);
+  const cartList = useSelector((state) => state.cart.cartList);
+  const totalPriceCart = useSelector((state) => state.cart.totalAmount);
   console.log(cartList);
+
   return (
     <div className="pay-container">
       <div className="pay-wrap">
@@ -28,39 +29,43 @@ export default function Pay() {
               <h3>THÔNG TIN THANH TOÁN</h3>
 
               <p className="info-fullname info-item">
-                <label>
+                <label htmlFor="fullName">
                   Họ và tên <span>*</span>
                 </label>
-                <input />
+                <input type="text" id="fullName" />
               </p>
 
               <p className="info-address info-item">
-                <label>
+                <label htmlFor="address">
                   Địa chỉ <span>*</span>
                 </label>
-                <input />
+                <input type="text" id="address" />
               </p>
 
               <p className="info-phonenumber info-item">
-                <label>
+                <label htmlFor="phoneNumber">
                   Số điện thoại <span>*</span>
                 </label>
-                <input />
+                <input id="phoneNumber" type="number" />
               </p>
 
               <p className="info-email info-item">
-                <label>
+                <label htmlFor="email">
                   Địa chỉ email <span>*</span>
                 </label>
-                <input />
+                <input id="email" type="email" />
               </p>
             </div>
 
             <div className="add-info">
               <h3>THÔNG TI BỔ SUNG</h3>
               <p className="info-message">
-                <label>Ghi chú đơn hàng (tùy chọn)</label>
-                <textarea defaultValue="Ghi chú về đơn hàng"></textarea>
+                <label htmlFor="message">Ghi chú đơn hàng (tùy chọn)</label>
+                <textarea
+                  name="message"
+                  id="message"
+                  placeholder="Ghi chú về đơn hàng"
+                ></textarea>
               </p>
             </div>
           </div>
@@ -81,8 +86,12 @@ export default function Pay() {
                     return (
                       <tbody key={index}>
                         <tr className="order-product">
-                          <td>{product.name} x 1</td>
-                          <td className="text-right">{product.price}.000 ₫</td>
+                          <td>
+                            {product.name} x {product.quantity}
+                          </td>
+                          <td className="text-right">
+                            {product.price * product.quantity}.000 ₫
+                          </td>
                         </tr>
                       </tbody>
                     );

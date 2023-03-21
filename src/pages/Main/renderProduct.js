@@ -4,7 +4,6 @@ import { infoProduct } from "../../redux/Slices/mainSlice";
 
 export default function Product({ product }) {
   const disPatch = useDispatch();
-  const info = useSelector((state) => state.main);
   return (
     <div key={product.id} className="product-item">
       <div className="product-img">

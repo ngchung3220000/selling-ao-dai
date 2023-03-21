@@ -116,6 +116,17 @@
     }
 }
 
+.info-phonenumber {
+    input {
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin            : 0;
+        }
+    }
+}
+
 .info-message {
     label {
         @include labelStyle();
@@ -160,6 +171,11 @@
     height         : auto;
     border-collapse: collapse;
     margin-bottom  : 20px;
+}
+
+.order-product {
+    color    : #999797;
+    font-size: 18px;
 }
 
 .order-header,

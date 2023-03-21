@@ -2,14 +2,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
-export default function SlickSlider({data}) {
+export default function SlickSlider({ data }) {
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToScroll: 1,
     initialSlide: 0,
     responsive: [
       {
@@ -42,9 +41,5 @@ export default function SlickSlider({data}) {
   };
 
   console.log(data);
-  return (
-    <Slider {...settings}>
-      {data}
-    </Slider>
-  );
+  return <Slider {...settings}>{data}</Slider>;
 }

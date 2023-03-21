@@ -5,7 +5,8 @@ const MainSlice = createSlice({
   initialState: {},
   reducers: {
     infoProduct: (state, action) => {
-      return (state = action.payload);
+      const item = { ...action.payload, quantity: 1 };
+      return (state = item);
     },
   },
 });

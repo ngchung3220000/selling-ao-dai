@@ -10,7 +10,8 @@ import { handleTotalPrice } from "../../../../helper";
 export default function CartList() {
   const disPatch = useDispatch();
   const toggle = useSelector((state) => state.navbar.cart);
-  const cartList = useSelector((state) => state.cart);
+  const cartList = useSelector((state) => state.cart.cartList);
+  const totalAmount = useSelector((state) => state.cart.totalAmount);
 
   const ref = UseOutsideClick(() => disPatch(toggleCartIcon(false)));
 
@@ -30,7 +31,7 @@ export default function CartList() {
               })}
             </ul>
             <p className="total-price">
-              Tổng số phụ: {handleTotalPrice(cartList, "price")}
+              Tổng số phụ: {totalAmount}
               <span>.000 ₫</span>
             </p>
             <p className="buttons">

@@ -10,14 +10,13 @@ import ProductRender from "./ProductRender";
 export default function Product() {
   const disPatch = useDispatch();
   const searchItems = useSelector((state) => state.navbar.search);
-  console.log(searchItems);
 
   const [sortBy, setSortBy] = useState("date");
   const [currentPage, setCurrentPage] = useState(1);
-  const [newPerPage, setNewPerPage] = useState(12);
+  const [newPerPage] = useState(12);
 
   const products = _.filter(dataShopOnline, (data) => {
-    return _.includes(_.lowerCase(data.name), _.trim(searchItems));
+    return _.includes(_.lowerCase(data.name), _.lowerCase(_.trim(searchItems)));
   });
 
   const indexOfLast = currentPage * newPerPage;
@@ -108,66 +107,51 @@ export default function Product() {
         </div>
       </div>
 
-      <div className="shop-online-bt">
-        {/* {
-          _.map(
-            sortBy === "price-desc"
-              ? priceDown
-              : sortBy === "price"
-              ? priceUp
-              : products,
-            (product) => {
-              return <ProductRender key={product.id} product={product} />;
-            }
-          )
-          : sortBy === "price"
-          ? priceUp.map((product) => {
-              return <ProductRender key={product.id} product={product} />;
-            })
-        } */}
-
-        {handleSortProduct()}
-      </div>
+      <div className="shop-online-bt">{handleSortProduct()}</div>
 
       <div className="pagination-page">
-        <ul className="page-numbers">
-          <li
-            className={`page-number-item ${
-              currentPage === 1 && "display-none"
-            }`}
-            onClick={handlePrevIcon}
-          >
-            <a href="#">
-              <i className="fa-solid fa-angle-left"></i>
-            </a>
-          </li>
+        {products.length > 0 ? (
+          <ul className="page-numbers">
+            <li
+              className={`page-number-item ${
+                currentPage === 1 && "display-none"
+              }`}
+              onClick={handlePrevIcon}
+            >
+              <a href="#">
+                <i className="fa-solid fa-angle-left"></i>
+              </a>
+            </li>
 
-          {_.map(pageNumbers, (number) => {
-            return (
-              <li
-                key={number}
-                className={`page-number-item ${
-                  currentPage === number ? "current-page" : ""
-                }`}
-                onClick={() => setCurrentPage(number)}
-              >
-                <a>{number}</a>
-              </li>
-            );
-          })}
+            {_.map(pageNumbers, (number) => {
+              return (
+                <li
+                  key={number}
+                  className={`page-number-item ${
+                    currentPage === number ? "current-page" : ""
+                  }`}
+                  onClick={() => setCurrentPage(number)}
+                >
+                  <a>{number}</a>
+                </li>
+              );
+            })}
 
-          <li
-            className={`page-number-item ${
-              currentPage === _.ceil(dataShopOnline.length / newPerPage) &&
-              "display-none"
-            }`}
-            onClick={handleNextIcon}
-          >
-            <a href="#">
-              <i className="fa-solid fa-angle-right"></i>
-            </a>
-          </li>
-        </ul>
+            <li
+              className={`page-number-item ${
+                currentPage === _.ceil(dataShopOnline.length / newPerPage) &&
+                "display-none"
+              }`}
+              onClick={handleNextIcon}
+            >
+              <a href="#">
+                <i className="fa-solid fa-angle-right"></i>
+              </a>
+            </li>
+          </ul>
+        ) : (
+          "Không có kết quả tìm kiếm"
+        )}
       </div>
     </div>
   );

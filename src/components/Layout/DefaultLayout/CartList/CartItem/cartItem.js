@@ -6,9 +6,11 @@ import { delItem } from "../../../../../redux/Slices/cartSlice";
 
 export default function CartItem({ product }) {
   const disPatch = useDispatch();
+
   const handleDelItem = () => {
     disPatch(delItem(product.id));
   };
+
   return (
     <div>
       <li className="cart-item">
@@ -20,7 +22,7 @@ export default function CartItem({ product }) {
           <span>{product.name}</span>
         </Link>
         <p className="price-item">
-          1 x <span>{product.price}.000 ₫</span>
+          {product.quantity} x <span>{product.price}.000 ₫</span>
         </p>
       </li>
       <div className="line"></div>
