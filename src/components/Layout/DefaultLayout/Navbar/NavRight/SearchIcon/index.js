@@ -18,6 +18,7 @@ export default function SearchIcon() {
   const handleChangeValueSearch = (e) => {
     e.target.value[0] !== " " && setSearchInput(e.target.value);
   };
+
   return (
     <li className="icon-search">
       <a href="#">

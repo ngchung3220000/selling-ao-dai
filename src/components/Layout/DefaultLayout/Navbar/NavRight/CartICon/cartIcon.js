@@ -2,10 +2,7 @@ import "./CartIcon.scss";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { handleTotalPrice } from "../../../../../../helper";
-import {
-  toggleCartIcon,
-  priceCartIcon,
-} from "../../../../../../redux/Slices/navbarSlice";
+import { toggleCartIcon } from "../../../../../../redux/Slices/navbarSlice";
 import { subTotal } from "../../../../../../redux/Slices/cartSlice";
 
 export default function CartIcon() {

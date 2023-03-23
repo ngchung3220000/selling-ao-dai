@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { publicRoutes } from "./routes";
 import DefaultLayout from "./components/Layout/DefaultLayout/defaultLayout";
+import Scroll from "./scrollToTop/index.js";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             );
           })}
         </Routes>
+        <Scroll />
       </div>
     </BrowserRouter>
   );

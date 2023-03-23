@@ -1,0 +1,19 @@
+.to-top {
+    position        : fixed;
+    bottom          : 40px;
+    right           : 30px;
+    width           : 40px;
+    height          : 40px;
+    border-radius   : 100%;
+    background-color: transparent;
+    border          : 1px solid #ddd;
+    color           : #ddd;
+    cursor          : pointer;
+    transition      : .3s;
+
+    &:hover {
+        background-color: #D35400;
+        color           : white;
+        border          : none;
+    }
+}

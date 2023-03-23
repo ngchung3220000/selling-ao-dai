@@ -25,18 +25,9 @@ export const navbarSlice = createSlice({
     toggleRequest: (state, action) => {
       state.order = action.payload;
     },
-
-    priceCartIcon: (state, action) => {
-      state.price = action.payload;
-    },
   },
 });
 
-export const {
-  searchText,
-  toggleLogin,
-  toggleCartIcon,
-  toggleRequest,
-  priceCartIcon,
-} = navbarSlice.actions;
+export const { searchText, toggleLogin, toggleCartIcon, toggleRequest } =
+  navbarSlice.actions;
 export default navbarSlice.reducer;
