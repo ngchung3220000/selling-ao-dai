@@ -40,11 +40,7 @@ export default function DescriptionProduct() {
             <input value={quantity} readOnly />
             <button onClick={() => setQuantity(quantity + 1)}>+</button>
           </div>
-          <Link
-            to="/gio-hang"
-            className="add-to-cart"
-            onClick={handleAddToCart}
-          >
+          <Link to="" className="add-to-cart" onClick={handleAddToCart}>
             THÊM VÀO GIỎ HÀNG
           </Link>
         </section>

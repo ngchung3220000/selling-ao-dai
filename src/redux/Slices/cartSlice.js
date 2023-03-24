@@ -15,13 +15,18 @@ const cartSlice = createSlice({
         (cartItem) => cartItem.id === action.payload.id
       );
       if (itemIndex !== -1) {
-        state.cartList[itemIndex].quantity += 1;
+        if (action.payload.quantity) {
+          state.cartList[itemIndex].quantity += action.payload.quantity;
+        } else {
+          state.cartList[itemIndex].quantity += 1;
+        }
       } else {
         const cartItem = {
           ...action.payload,
           quantity: action.payload.quantity ? action.payload.quantity : 1,
         };
         state.cartList.push(cartItem);
+        console.log(action.payload.quantity);
       }
     },
     delItem: (state, action) => {
