@@ -9,8 +9,15 @@ export default function DescriptionProduct() {
   const product = useSelector((state) => state.main);
 
   const [quantity, setQuantity] = useState(product.quantity);
+
   const handleAddToCart = () => {
     disPatch(addToCart({ ...product, quantity: quantity }));
+  };
+
+  const handleDecsQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
   };
 
   return (
@@ -36,7 +43,7 @@ export default function DescriptionProduct() {
 
         <section className="info-quantity">
           <div className="quantity">
-            <button onClick={() => setQuantity(quantity - 1)}>-</button>
+            <button onClick={handleDecsQuantity}>-</button>
             <input value={quantity} readOnly />
             <button onClick={() => setQuantity(quantity + 1)}>+</button>
           </div>

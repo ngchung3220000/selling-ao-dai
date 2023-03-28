@@ -1,10 +1,10 @@
 import "./cartPageItem.scss";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
-  addToCart,
   decreaseQuantity,
   delItem,
+  increaseQuantity,
 } from "../../../redux/Slices/cartSlice";
 
 export default function CartPageItem({ product }) {
@@ -34,7 +34,7 @@ export default function CartPageItem({ product }) {
       <td className="product-quantity">
         <button onClick={() => disPatch(decreaseQuantity(product))}>-</button>
         <input type="number" value={product.quantity} readOnly />
-        <button onClick={() => disPatch(addToCart(product))}>+</button>
+        <button onClick={() => disPatch(increaseQuantity(product))}>+</button>
       </td>
       <td className="product-subtotal">
         <span>{product.quantity * product.price}.000 ₫</span>

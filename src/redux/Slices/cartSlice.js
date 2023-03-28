@@ -26,7 +26,6 @@ const cartSlice = createSlice({
           quantity: action.payload.quantity ? action.payload.quantity : 1,
         };
         state.cartList.push(cartItem);
-        console.log(action.payload.quantity);
       }
     },
     delItem: (state, action) => {
@@ -50,6 +49,17 @@ const cartSlice = createSlice({
       }
     },
 
+    increaseQuantity: (state, action) => {
+      const itemIndex = _.findIndex(
+        state.cartList,
+        (cartItem) => cartItem.id === action.payload.id
+      );
+
+      if (state.cartList[itemIndex].quantity >= 1) {
+        state.cartList[itemIndex].quantity += 1;
+      }
+    },
+
     subTotal: (state) => {
       const total = _.reduce(
         state.cartList,
@@ -64,6 +74,11 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, delItem, decreaseQuantity, subTotal } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  delItem,
+  decreaseQuantity,
+  subTotal,
+  increaseQuantity,
+} = cartSlice.actions;
 export default cartSlice.reducer;
