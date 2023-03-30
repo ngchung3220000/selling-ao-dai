@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+
 export const UseOutsideClick = (handler) => {
   const ref = useRef();
 
